@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 :root{
-    --card-width: 24rem;
+    --card-text-gradient: linear-gradient(120deg, magenta, cyan, yellow);
+    --card-move-gradient: 0%;
+    --card-transition: all .5s ease;
 }
 html{
     scroll-behavior: smooth;
@@ -15,6 +17,13 @@ body{
     background-color: #323232;
     color: whitesmoke;
     padding: 6rem;
+}
+body > #preload{
+    display: none;
+    user-select: none;
+    width: 0;
+    height: 0;
+    content: attr(data-imgSrc);
 }
 h1{
     font-size: 6.4rem;
@@ -28,14 +37,13 @@ h2{
 .container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
+    
     border-radius: 1rem;
     box-shadow: inset .4rem .4rem .8rem 0 black;
-
+    
     padding: 4rem;
     margin: 2rem;
 }
-
 .card{
     overflow: hidden;
     position: relative;
@@ -43,36 +51,47 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
     border: white solid 3px;
     border-radius: 1rem;
     box-shadow: .8rem .8rem 1.6rem 0 black;
-
+    
     padding: 2rem;
     margin: 2rem 5rem;
-    /* width: var(--card-width);
-    height: var(--card-width); */
+    
+    transition: var(--card-transition);
 }
 .card > h2{
     position: relative;
-    background: linear-gradient(300deg, magenta, cyan);
+    background: var(--card-text-gradient);
+    background-position: var(--card-move-gradient);
+    background-size: 200%;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-}
-.card > h2::after{
-    content: attr(data-name);
-    position: absolute;
-    inset: 0;
-    text-shadow: .2rem .2rem .5rem #fff5;
 }
 .card > img{
     position: absolute;
     inset: 0;
     z-index: -1;
-
+    
     width: 100%;
     transform-origin: center;
     
     filter: blur(.125rem);
+}
+.card > *{
+    transition: var(--card-transition);
+}
+.card:hover{
+    transform: scale(1.02);
+    box-shadow: 1.6rem 1.6rem 2rem 0 #0009;
+}
+.card:hover h2{
+    --card-move-gradient: 100%;
+    text-shadow: 0 0 2rem #000;
+}
+.card:hover h2:nth-child(2){
+    transform: scale(1.2) translateY(-1.25rem);
+
 }
