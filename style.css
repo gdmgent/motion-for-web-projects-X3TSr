@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all .25s ease;
 }
 :root{
     --card-text-gradient: linear-gradient(120deg, magenta, cyan, yellow);
@@ -18,12 +19,8 @@ body{
     color: whitesmoke;
     padding: 6rem;
 }
-body > #preload{
-    display: none;
-    user-select: none;
-    width: 0;
-    height: 0;
-    content: attr(data-imgSrc);
+main{
+    display: grid;
 }
 h1{
     font-size: 6.4rem;
@@ -34,15 +31,19 @@ h2{
     font-weight: 500;
 }
 
+
+
 .container{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+    justify-self: center;
     
     border-radius: 1rem;
     box-shadow: inset .4rem .4rem .8rem 0 black;
     
-    padding: 4rem;
-    margin: 2rem;
+    width: 90vw;
+
+    padding: 2rem 2.5vw;
 }
 .card{
     overflow: hidden;
@@ -89,9 +90,7 @@ h2{
 }
 .card:hover h2{
     --card-move-gradient: 100%;
-    text-shadow: 0 0 2rem #000;
 }
 .card:hover h2:nth-child(2){
     transform: scale(1.2) translateY(-1.25rem);
-
 }
