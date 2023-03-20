@@ -81,11 +81,24 @@ h2{
     
     filter: blur(.125rem);
 }
+.card .flare{
+    position: absolute;
+    top: -25%;
+    left: 0;
+    transform-origin: center;
+    background-color: white;
+
+    width: 2.5rem;
+    height: 10rem;
+    
+    opacity: 0;
+    transform: rotate(25deg) translateX(-200%) scale(3.5);
+}
 .card > *{
     transition: var(--card-transition);
 }
 .card:hover{
-    transform: scale(1.02);
+    transform: skewX(-3deg) scale(1.05);
     box-shadow: 1.6rem 1.6rem 2rem 0 #0009;
 }
 .card:hover h2{
@@ -93,4 +106,8 @@ h2{
 }
 .card:hover h2:nth-child(2){
     transform: scale(1.2) translateY(-1.25rem);
+}
+.card:hover .flare{
+    opacity: .3;
+    transform: rotate(25deg) translateX(2000%) scale(3.5);
 }
