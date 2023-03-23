@@ -88,11 +88,11 @@ h2{
     transform-origin: center;
     background-color: white;
 
-    width: 2.5rem;
+    width: 2rem;
     height: 10rem;
     
     opacity: 0;
-    transform: rotate(25deg) translateX(-200%) scale(3.5);
+    transform: rotate(25deg) translateX(-200%) scale(5)
 }
 .card > *{
     transition: var(--card-transition);
@@ -109,5 +109,7 @@ h2{
 }
 .card:hover .flare{
     opacity: .3;
-    transform: rotate(25deg) translateX(2000%) scale(3.5);
+    top: 114%;
+    left: 114%;
+    transform: rotate(25deg) translateX(-200%) scale(5);
 }
