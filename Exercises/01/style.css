@@ -1,51 +1,121 @@
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 5px;
-    background-color: #ffffff;
-    max-width: 300px;
-    margin: 20px;
-    display: inline-block;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .card img {
-    border-radius: 5px 5px 0 0;
+:root{
+    --transition-general: all .2s ease;
+    --card-width: 37.5rem;
+    --card-height: 50rem;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
+    gap: 5rem;
+
+    margin: 3rem;
+}
+.card{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 0 1rem #0009;
+    border-radius: 1rem;
+
+    width: var(--card-width);
+    height: var(--card-height);
+
+    transition: var(--transition-general);
+}
+.card:hover{
+    box-shadow: 0 0 2rem #0009;
+    transform: scale(1.02);
+}
+.card > *{
+    transition: var(--transition-general);
+}
+.card > img{
+    position: absolute;
+    inset: 0;
+    
+    box-shadow: 0 0 0 black;
+    border-radius: 1rem 1rem 0 0;
+    
     width: 100%;
-  }
-  
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .card-text {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-  
-  .btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+    filter: grayscale(1);
+}
+.card > img:hover{
+    box-shadow: 0 0 2rem #000;
+    transform: scale(1.06);
+    animation: colorise .25s forwards;
+}
+.card > .card-body{
+    position: absolute;
+    bottom: 0rem;
+
+    width: calc(var(--card-width) * .9);
+    height: calc(var(--card-height) / 2);
+    padding: 1rem;
+}
+.card > .card-body > .card-title{
+    position: absolute;
+    top: calc(var(--card-height)* .05);
+    font-size: 2.4rem;
+}
+.card > .card-body > .card-text{
+    position: absolute;
+    bottom: calc(var(--card-height)* .12);
+
+    font-size: 1.4rem;
+}
+.card > .card-body > .btn{
+    position: absolute;
+    bottom: calc(var(--card-height)* .03);
+
+    background-color: hsl(195, 30%, 70%);
+    color: hsl(195, 70%, 30%);
+    border-radius: 1rem;
+
+    font-size: 1.4rem;
+    font-weight: 800;
     text-decoration: none;
-  }
-  
-  .btn:hover {
-    background-color: #3e8e41;
-  }
-  
+
+    padding: 1rem;
+    transition: var(--transition-general);
+}
+.card > .card-body > .btn:hover{
+    background-color: hsl(195, 70%, 30%);
+    color: hsl(195, 30%, 70%);
+    animation: wigle .25s ease;
+}
+
+@keyframes colorise {
+    0%{
+        filter: grayscale(1);
+    }
+    100%{
+        filter: grayscale(0);
+    }
+}
+
+@keyframes wigle {
+    0%, 100%{
+        transform: rotate(0deg);
+    }
+    33%{
+        transform: rotate(10deg);
+    }
+    66%{
+        transform: rotate(-10deg);
+    }
+}
