@@ -82,7 +82,8 @@ a{
     width: 100%;
     transform-origin: center;
     
-    filter: blur(.125rem);
+    filter: blur(.25rem) hue-rotate(180deg) invert(25%) saturate(300%) brightness(50%);
+    animation: imageAbstractMove var(--rnd) infinite alternate;
 }
 .card .flare{
     position: absolute;
@@ -115,4 +116,23 @@ a{
     top: 114%;
     left: 114%;
     transform: rotate(25deg) translateX(-200%) scale(5);
+}
+
+.rnd1 > img{
+    --rnd: 31.4s;
+}
+.rnd2 > img{
+    --rnd: 15.9s;
+}
+.rnd3 > img{
+    --rnd: 26.5s;
+}
+
+@keyframes imageAbstractMove {
+    0%{
+        transform: scale(3) rotate(0deg);
+    }
+    100%{
+        transform: scale(6) rotate(36deg);
+    }
 }

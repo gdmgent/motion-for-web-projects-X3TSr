@@ -1,8 +1,9 @@
-const cardImgs = document.getElementsByClassName("cardImg");
-const arrCardImgs = [...cardImgs];
+const $cardImgs = document.getElementsByClassName("cardImg");
+const $head = document.getElementsByTagName('head')[0];
 
-arrCardImgs.forEach(cardImg => {
-    cardImg.src = "https://unsplash.it/1080/19"+j+i;
-    i==9? j++ : i++;
-    i==9? i=0 : 0;
-});
+
+for (const $cardImg of $cardImgs) {
+    const random = Math.round(Math.random() * 99);
+    const url = "https://unsplash.it/1080/19"+ (random < 10 ? `0${random}` : random);
+    $cardImg.src = url;
+};
