@@ -99,11 +99,11 @@ body{
     width: 100%;
     height: 100%;
 }
-.map .biomes > *{
+.map .biomes > article{
     width: var(--map-section-size-width);
     height: var(--map-section-size-height);
 }
-.map .biomes > *::before{
+.map .biomes > article::before{
     font-size: calc(var(--map-section-size-width) / 5);
 }
 
@@ -114,11 +114,31 @@ body{
     width: 100vw;
     min-height: 20vh;
 }
-.biomes > *{
+.biomes .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.biomes .card button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #000;
+    color: #fff;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    width: 100%;
+    height: 2rem;
+}
+.biomes article{
     width: 10rem;
     height: 10rem;
 }
-.biomes > *::before{
+.biomes article::before{
     content: attr(data-name);
     display: flex;
     justify-content: center;
@@ -127,18 +147,18 @@ body{
     font-size: 2rem;
     height: 100%;
 }
-.biomes > .forest{
+.biomes .forest{
     background-color: darkgreen;
 }
-.biomes > .dessert{
+.biomes .dessert{
     background-color: darkgoldenrod;
 }
-.biomes > .swamp{
+.biomes .swamp{
     background-color: darkolivegreen;
 }
-.biomes > .sea{
+.biomes .sea{
     background-color: lightseagreen;
 }
-.biomes > .city{
+.biomes .city{
     background-color: grey;
 }

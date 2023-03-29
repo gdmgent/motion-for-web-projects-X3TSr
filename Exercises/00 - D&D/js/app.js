@@ -12,6 +12,7 @@ const hole = document.getElementById("hole");
 const forest = document.getElementById("forest");
 const dessert = document.getElementById("dessert");
 const swamp = document.getElementById("swamp");
+const sea = document.getElementById("sea");
 const city = document.getElementById("city");
 // -- Map components
 // -- -- Places
@@ -28,8 +29,8 @@ const tree = document.getElementById("tree");
 const bush = document.getElementById("bush");
 
 
-
-const makeMapSections = () =>{
+// Funcs
+const makeMapSections = () => {
     // Make map sections
     document.documentElement.style.setProperty("--map-columns", mapColumns.value);
     while (mapSection.hasChildNodes()) {
@@ -42,17 +43,50 @@ const makeMapSections = () =>{
     for (let i = 0; i < 16; i++) {
         mapSection.appendChild(hole.cloneNode(true));
     }
-    for (let i = 0; i < x*x; i++) {
+    for (let i = 0; i < x * x; i++) {
+        mapSection.id = "map-section-"+i;
         map.appendChild(mapSection.cloneNode(true));
     }
-    let b = document.createElement("section");
-    let f = forest.cloneNode(true);
-    b.classList.add("biomes");
-    b.appendChild(f);
-    map.firstChild.appendChild(b);
+};
+const addBiome = (type) => {
+    if (map.hasChildNodes()) {
+        let childCount = map.childElementCount;
+        for (let i = 0; i < childCount; i++) {
+            let biomeParent = document.getElementById("map-section-"+i)
+            let innerBiome = biomeParent.lastChild.firstChild;
+            if (innerBiome == null) {
+                let biomeType;
+                switch (type) {
+                    case "forest":
+                        biomeType = forest.cloneNode(true);
+                        break;
+                    case "dessert":
+                        biomeType = dessert.cloneNode(true);
+                        break;
+                    case "swamp":
+                        biomeType = swamp.cloneNode(true);
+                        break;
+                    case "sea":
+                        biomeType = sea.cloneNode(true);
+                        break;
+                    case "city":
+                        biomeType = city.cloneNode(true);
+                        break;
+                    default:
+                        break;
+                }
+                let biomesElement = document.createElement("section");
+                biomesElement.classList.add("biomes");
+                biomesElement.appendChild(biomeType);
+                biomeParent.appendChild(biomesElement);
+                break;
+            }
+        }
+    }
 };
 
-makeMapSections();
 
-// Detect change
+// Run once
+makeMapSections();
+// Detect change in input field
 mapColumns.addEventListener("change", makeMapSections);
