@@ -1,0 +1,144 @@
+:root{
+    /* General Settings */
+    --map-size: 200rem;
+    --map-columns: 4;
+    /* Map Size */
+    --map-size-width: calc(var(--map-size) / 4);
+    --map-size-height: var(--map-size-width);
+    /* Section Size */
+    --map-section-size-width: calc(var(--map-size) / calc(var(--map-columns)*4));
+    --map-section-size-height: var(--map-section-size-width);
+    --map-section-padding: calc(var(--map-size-width) / 50);
+    /* Hole Size */
+    --map-hole-size-width: calc(var(--map-size) / calc(var(--map-columns)*75));
+    --map-hole-size-heigth: var(--map-hole-size-width);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #dddeee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.main{
+    overflow: hidden;
+    
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+    align-items: end;
+
+    height: 80vh;
+}
+#mapColumns{
+    height: 3vh;
+    width: 3vw;
+    text-align: right;
+}
+.map{
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--map-section-size-width));
+    grid-template-rows: repeat(auto-fit, var(--map-section-size-width));
+
+    background-color: whitesmoke;
+    box-shadow: 0 0 2vw #0003;
+    
+    width: var(--map-size-width);
+    height: var(--map-size-height);
+}
+.map > .map-section{
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(4, var(--map-hole-size-width));
+    gap: calc(var(--map-hole-size-width) * 3);
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    border: 1px solid #0003;
+    
+    width: var(--map-section-size-width);
+    height: var(--map-section-size-height);
+    padding: var(--map-section-padding);
+}
+.map > .map-section > .hole{
+    background-color: #dddeee;
+    border-radius: 100%;
+    box-shadow: inset 0 0 .5vw #0003;
+
+    width: var(--map-hole-size-width);
+    height: var(--map-hole-size-heigth);
+}
+.map .biomes{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: initial;
+
+    width: 100%;
+    height: 100%;
+}
+.map .biomes > *{
+    width: var(--map-section-size-width);
+    height: var(--map-section-size-height);
+}
+.map .biomes > *::before{
+    font-size: calc(var(--map-section-size-width) / 5);
+}
+
+.biomes{
+    display: flex;
+    justify-content: space-around;
+
+    width: 100vw;
+    min-height: 20vh;
+}
+.biomes > *{
+    width: 10rem;
+    height: 10rem;
+}
+.biomes > *::before{
+    content: attr(data-name);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    height: 100%;
+}
+.biomes > .forest{
+    background-color: darkgreen;
+}
+.biomes > .dessert{
+    background-color: darkgoldenrod;
+}
+.biomes > .swamp{
+    background-color: darkolivegreen;
+}
+.biomes > .sea{
+    background-color: lightseagreen;
+}
+.biomes > .city{
+    background-color: grey;
+}
