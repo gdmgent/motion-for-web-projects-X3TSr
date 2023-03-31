@@ -119,13 +119,13 @@ a{
 }
 
 .rnd1 > img{
-    --rnd: 31.4s;
+    --rnd: 314s;
 }
 .rnd2 > img{
-    --rnd: 15.9s;
+    --rnd: 159s;
 }
 .rnd3 > img{
-    --rnd: 26.5s;
+    --rnd: 265s;
 }
 
 @keyframes imageAbstractMove {
