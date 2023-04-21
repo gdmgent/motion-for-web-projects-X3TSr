@@ -8,6 +8,8 @@
     --card-text-gradient: linear-gradient(120deg, magenta, cyan, yellow);
     --card-move-gradient: 0%;
     --card-transition: all .5s ease;
+
+    --color-primary-700: hsl(170, 53%, 20%);
 }
 html{
     scroll-behavior: smooth;
@@ -36,6 +38,10 @@ a{
 
 
 
+.title{
+    color: var(--color-primary-700);
+    text-shadow: .25rem .25rem .5rem whitesmoke;
+}
 .container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
@@ -56,6 +62,7 @@ a{
     justify-content: center;
     align-items: center;
     
+    background-color: var(--color-primary-700);
     border: white solid 3px;
     border-radius: 1rem;
     box-shadow: .8rem .8rem 1.6rem 0 black;
@@ -75,6 +82,20 @@ a{
     color: transparent;
 }
 .card > img{
+
+
+    /*
+
+    CHECK TO HAVE IMAGES:
+
+    */
+    opacity: 0;
+    /*
+
+    CHECK TO HAVE IMAGES:
+
+    */
+    
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -82,7 +103,7 @@ a{
     width: 100%;
     transform-origin: center;
     
-    filter: blur(.25rem) hue-rotate(180deg) invert(25%) saturate(300%) brightness(50%);
+    filter: blur(.25rem) hue-rotate(180deg) invert(25%) saturate(300%) brightness(90%);
     animation: imageAbstractMove var(--rnd) infinite alternate;
 }
 .card .flare{
@@ -126,6 +147,9 @@ a{
 }
 .rnd3 > img{
     --rnd: 265s;
+}
+.rnd4 > img{
+    --rnd: 358s;
 }
 
 @keyframes imageAbstractMove {
