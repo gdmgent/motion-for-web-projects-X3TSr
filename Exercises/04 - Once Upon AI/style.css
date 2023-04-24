@@ -1,0 +1,29 @@
+/*
+    General
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+
+/*
+    Home page
+*/
+body{
+    overflow: hidden;
+
+    background-image: url();
+
+    height: 100vh;
+}
+
+
+/*
+    Story page
+*/
