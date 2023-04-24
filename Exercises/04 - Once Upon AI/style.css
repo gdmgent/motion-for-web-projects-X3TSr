@@ -5,25 +5,151 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all .25s ease;
 }
 html{
     font-size: 62.5%;
     scroll-behavior: smooth;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+a{
+    display: inline-block;
 }
 
 
 /*
     Home page
 */
-body{
+body:has(#index){
     overflow: hidden;
 
-    background-image: url();
+    background-color: white;
+    background-image: url(images/roseFace1.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 100vh;
 
     height: 100vh;
+}
+#index{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+#index > .container{
+    position: relative;
+    
+    grid-area: 4/2/8/6;
+    
+    background-color: #fffd;
+    font-size: 2.4rem;
+    box-shadow: 0 0 1rem black;
+    
+    padding: 2rem;
+}
+#index > .container > *{
+    margin: 1rem 0;
+}
+#index > .container > .ctaStory{
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+
+    background-color: black;
+    color: white;
+    
+    border-radius: 1rem;
+    text-decoration: none;
+    
+    padding: 1rem 2rem;
+}
+#index > .container > .ctaStory:hover{
+    transform: scale(1.05);
 }
 
 
 /*
     Story page
 */
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+    gap: 2rem;
+    
+    background-color: black;
+    font-size: 2rem;
+
+    height: 6rem;
+    width: 100vw;
+}
+nav > a{
+    text-decoration: none;
+    color: white;
+}
+nav > a:hover{
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+.chapter{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 3rem;
+
+    height: 100vh;
+    padding-left: 4rem;
+
+    perspective: 2px;
+}
+.chapter > .chapterContent > .title{
+    position: relative;
+
+    font-size: 2.8rem;
+
+    margin-bottom: 1rem;
+}
+.chapter > .chapterContent > .title::before{
+    content: '';
+
+    position: absolute;
+    bottom: 0;
+
+    display: inline-block;
+    
+    background-color: red;
+    background-image: linear-gradient(90deg, red, black 10%);
+    border-radius: 5rem;
+    
+    height: .5rem;
+    width: 100%;
+}
+.chapter > .chapterContent > .title::first-letter{
+    color: red;
+    font-size: 3.8rem;
+}
+.chapter > .chapterContent > .storyParagraph{
+    font-size: 1.8rem;
+    margin-left: 1rem;
+    z-index: 1;
+}
+.chapter > .image{
+    background-image: url(images/roseFace3-Enhanced.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    box-shadow: inset 0 0 5rem .5rem black;
+
+    width: 50rem;
+    height: 50rem;
+}
