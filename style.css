@@ -151,6 +151,9 @@ a{
 .rnd4 > img{
     --rnd: 358s;
 }
+.rnd5 > img{
+    --rnd: 979s;
+}
 
 @keyframes imageAbstractMove {
     0%{
