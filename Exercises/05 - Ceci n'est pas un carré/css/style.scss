@@ -37,7 +37,6 @@ body {
 section {
     min-height: 100vh;
     position: relative;
-   
 }
 
 section#start {
@@ -47,6 +46,13 @@ section#start {
 }
 
 section#start, section#end {
+
+
+
+    background-color: red;
+
+
+
     padding-top: 70vh;
     h1 {
         font-family: Sacramento;
