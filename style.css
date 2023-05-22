@@ -121,6 +121,7 @@ a{
 }
 .card > *{
     transition: var(--card-transition);
+    text-align: center;
 }
 .card:hover{
     transform: skewX(-3deg) scale(1.05);
@@ -153,6 +154,9 @@ a{
 }
 .rnd5 > img{
     --rnd: 979s;
+}
+.rnd5 > img{
+    --rnd: 323s;
 }
 
 @keyframes imageAbstractMove {
